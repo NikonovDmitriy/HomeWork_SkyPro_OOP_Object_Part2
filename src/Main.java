@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
+
         Car car1 = new Car("Lada", "Grande", 2015, "Россия", "желтый", 1.7);
         car1.infoCar();
 
@@ -15,5 +16,6 @@ public class Main {
 
         Car car5 = new Car("Hyundai", "Avante", 2016, "Южная Корея", "оранжевый", 1.6);
         car5.infoCar();
+
     }
 }
