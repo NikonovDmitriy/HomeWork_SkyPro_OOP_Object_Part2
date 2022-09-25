@@ -38,7 +38,7 @@ public class Car {
         }
         this.color = color;
 
-        if(engineVolume==null){
+        if(engineVolume==0){
             this.engineVolume = 1.5;
         }else {
             this.engineVolume = engineVolume;
