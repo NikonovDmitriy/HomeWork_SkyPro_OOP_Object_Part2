@@ -1,7 +1,6 @@
 public class Main {
     public static void main(String[] args) {
 
-
         Car car1 = new Car("Lada", "Grande", 2015, "Россия", "желтый", 1.7);
         car1.infoCar();
 

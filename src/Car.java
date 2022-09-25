@@ -7,7 +7,6 @@ public class Car {
     int productionYear;
     String productionCountry;
 
-
     Car(String brand, String model, int productionYear, String productionCountry, String color, double engineVolume) {
         this.brand = brand;
         this.model = model;
