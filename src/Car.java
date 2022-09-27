@@ -1,52 +1,31 @@
 public class Car {
 
-    String brand;
-    String model;
-    double engineVolume;
-    String color;
-    Integer productionYear;
-    String productionCountry;
+    private final String brand;
+    private final String model;
+    private final double engineVolume;
+    private final String color;
+    private final Integer productionYear;
+    private final String productionCountry;
 
-    Car(String brand, String model, Integer productionYear, String productionCountry, String color, double engineVolume) {
+    public Car(String brand, String model, Integer productionYear, String productionCountry, String color, double engineVolume) {
 
-        if(brand==null){
-            this.brand = "default";
-        }else {
-            this.brand = brand;
-        }
 
-        if(model==null){
-            this.model = "default";
-        }else {
-            this.model = model;
-        }
+        this.brand = brand == null ? "default" : brand;
 
-        if(productionYear==null){
-            this.productionYear = 2000;
-        }else {
-            this.productionYear = productionYear;
-        }
+        this.model = model == null ? "default" : model;
 
-        if(productionCountry==null){
-            this.productionCountry = "default";
-        }else {
-            this.productionCountry = productionCountry;
-        }
+        this.productionYear = productionYear == null ? 2000 : productionYear;
 
-        if(color==null){
-            this.color = "белый";
-        }
-        this.color = color;
+        this.productionCountry = productionCountry == null ? "default" : productionCountry;
 
-        if(engineVolume==0){
-            this.engineVolume = 1.5;
-        }else {
-            this.engineVolume = engineVolume;
-        }
+        this.color = color == null ? "белый" : color;
+
+        this.engineVolume = engineVolume == 0 ? 1.5 : engineVolume;
+
     }
 
 
     void infoCar() {
-        System.out.println(brand +" "+ model+", " + productionYear + " год выпуска, страна сборки " + productionCountry+", " + color + " цвет, объем двигателя - " + engineVolume);
+        System.out.println(brand + " " + model + ", " + productionYear + " год выпуска, страна сборки " + productionCountry + ", " + color + " цвет, объем двигателя - " + engineVolume);
     }
 }
