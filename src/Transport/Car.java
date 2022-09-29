@@ -133,4 +133,39 @@ public class Car {
 
     }
 
+    public static class Key {
+        private static String remoteEngineStart;
+        private static String keylessAccess;
+
+        private Key(String remoteEngineStart, String keylessAccess) {
+            remoteEngineStart = remoteEngineStart == null || remoteEngineStart.isBlank() || remoteEngineStart.isEmpty() ? "некорректные данные" : remoteEngineStart;
+            keylessAccess = keylessAccess == null || keylessAccess.isBlank() || keylessAccess.isEmpty() ? "некорректные данные" : keylessAccess;
+        }
+    }
+
+    public static class Insurance {
+        private static String validity;
+        private static int price;
+        private static int number;
+
+        private Insurance(String validity, int price, int number) {
+            validity = validity == null || validity.isEmpty() || validity.isBlank() ? "некорректное значение" : validity;
+            price = price == 0 || price < 0 ? 0 : price;
+            number = number == 0 || number < 0 ? 0 : number;
+        }
+
+        public void infoInsurance() {
+            if(validity==null){
+                System.out.println("нужно срочно ехать оформлять новую страховку");
+            }
+        }
+
+        public void validityInsurance() {
+            if (validity < validity. ||) {
+
+            }
+        }
+    }
+
+
 }
