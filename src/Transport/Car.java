@@ -24,6 +24,8 @@ public class Car {
 
     String rubber;
 
+    private Key key;
+
     public String getBrand() {
         return brand;
     }
@@ -99,7 +101,17 @@ public class Car {
         this.rubber = rubber == null || rubber.isEmpty() || rubber.isBlank() ? "default" : rubber;
     }
 
-    public Car(String brand, String model, Integer productionYear, String productionCountry, String color, double engineVolume, String transmission, String bodyType, String registrationNumber, int numberOfSeats) {
+    public Car(String brand,
+               String model,
+               Integer productionYear,
+               String productionCountry,
+               String color,
+               double engineVolume,
+               String transmission,
+               String bodyType,
+               String registrationNumber,
+               int numberOfSeats,
+               Key key) {
 
 
         this.brand = brand == null ? "default" : brand;
@@ -121,7 +133,15 @@ public class Car {
         this.registrationNumber = registrationNumber == null ? "неважно" : registrationNumber;
 
         this.numberOfSeats = numberOfSeats < 0 ? 000 : numberOfSeats;
+
+        if (key==null){
+            this.key = new Key();
+        }else{
+            this.key = key;
+        }
     }
+
+
 
 
     public void infoCar() {
@@ -134,17 +154,30 @@ public class Car {
     }
 
     public static class Key {
-        private static String remoteEngineStart;
-        private static String keylessAccess;
+        private final boolean remoteEngineStart;
+        private final boolean keylessAccess;
 
-        private Key(String remoteEngineStart, String keylessAccess) {
-            remoteEngineStart = remoteEngineStart == null || remoteEngineStart.isBlank() || remoteEngineStart.isEmpty() ? "некорректные данные" : remoteEngineStart;
-            keylessAccess = keylessAccess == null || keylessAccess.isBlank() || keylessAccess.isEmpty() ? "некорректные данные" : keylessAccess;
+        public boolean isRemoteEngineStart() {
+            return remoteEngineStart;
         }
+
+        public boolean isKeylessAccess() {
+            return keylessAccess;
+        }
+
+        private Key(boolean remoteEngineStart, boolean keylessAccess) {
+            this.remoteEngineStart = remoteEngineStart;
+            this.keylessAccess = keylessAccess;
+
+        private Key () {
+            this(false, false);
+        }
+
+
     }
 
     public static class Insurance {
-        private static String validity;
+        private static  String validity;
         private static int price;
         private static int number;
 
