@@ -2,29 +2,32 @@ package Transport;
 
 import org.w3c.dom.ls.LSOutput;
 
+import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Car {
 
-    private String brand;
-    private String model;
+    private final String brand;
+    private final String model;
     double engineVolume;
-    String color;
-    private Integer productionYear;
-    private String productionCountry;
+    private String color;
+    private final Integer productionYear;
+    private final String productionCountry;
 
-    String transmission;
+    private String transmission;
 
-    private String bodyType;
+    private final String bodyType;
 
-    String registrationNumber;
+    private String registrationNumber;
 
-    private int numberOfSeats;
+    private final int numberOfSeats;
 
-    String rubber;
+    private String rubber;
 
-    private Key key;
+    private final Key key;
+
+    private Key.Insurance insurance;
 
     public String getBrand() {
         return brand;
@@ -92,6 +95,7 @@ public class Car {
         }
     }
 
+
     private CharSequence registrationNumber(String registrationNumber) {
         this.registrationNumber = registrationNumber;
         return registrationNumber;
@@ -111,7 +115,8 @@ public class Car {
                String bodyType,
                String registrationNumber,
                int numberOfSeats,
-               Key key) {
+               Key key,
+               Key.Insurance insurance;) {
 
 
         this.brand = brand == null ? "default" : brand;
@@ -134,71 +139,99 @@ public class Car {
 
         this.numberOfSeats = numberOfSeats < 0 ? 000 : numberOfSeats;
 
-        if (key==null){
+        if (key == null) {
             this.key = new Key();
-        }else{
+        } else {
             this.key = key;
+        }
+
+        if (insurance == null) {
+            this.insurance = new Key.Insurance()
+        }else {
+            this.insurance = insurance;
         }
     }
 
 
-
-
     public void infoCar() {
-        System.out.println(brand + " " + model + ", " + productionYear + " год выпуска, страна сборки " + productionCountry + ", " + color + " цвет, объем двигателя - " + engineVolume+", тип коробки "+transmission+", тип кузова "+bodyType+", регистрационный номер "+registrationNumber+", количество мест "+numberOfSeats);
+        System.out.println(brand + " " + model + ", " + productionYear + " год выпуска, страна сборки " + productionCountry + ", " + color + " цвет, объем двигателя - " + engineVolume + ", тип коробки " + transmission + ", тип кузова " + bodyType + ", регистрационный номер " + registrationNumber + ", количество мест " + numberOfSeats);
     }
 
-    public void infoRubber(){
+    public void infoRubber() {
         System.out.println("Шины заменены на сезонные");
 
     }
+
+    public Key getKey() {
+        return key;
+    }
+
+    public void setKey(Key key) {
+        this.key = key;
+    }
+
 
     public static class Key {
         private final boolean remoteEngineStart;
         private final boolean keylessAccess;
 
-        public boolean isRemoteEngineStart() {
-            return remoteEngineStart;
-        }
-
-        public boolean isKeylessAccess() {
-            return keylessAccess;
-        }
 
         private Key(boolean remoteEngineStart, boolean keylessAccess) {
             this.remoteEngineStart = remoteEngineStart;
             this.keylessAccess = keylessAccess;
 
-        private Key () {
-            this(false, false);
+        private Key() {
+                this(false, false);
+            }
+
+            public boolean isRemoteEngineStart () {
+                return remoteEngineStart;
+            }
+
+            public boolean isKeylessAccess () {
+                return keylessAccess;
+            }
+
+
         }
 
+        public static class Insurance {
+            private final LocalDate validity;
+            private final double price;
+            private final String number;
 
-    }
 
-    public static class Insurance {
-        private static  String validity;
-        private static int price;
-        private static int number;
+            public Insurance(LocalDate validity, double price, String number) {
+                this.validity = validity == null ? LocalDate.now().plusDays(365) : validity;
+                this.price = price;
+                this.number = number == null ? "123456789" : number;
+            }
 
-        private Insurance(String validity, int price, int number) {
-            validity = validity == null || validity.isEmpty() || validity.isBlank() ? "некорректное значение" : validity;
-            price = price == 0 || price < 0 ? 0 : price;
-            number = number == 0 || number < 0 ? 0 : number;
-        }
+            public LocalDate getValidity() {
+                return validity;
+            }
 
-        public void infoInsurance() {
-            if(validity==null){
-                System.out.println("нужно срочно ехать оформлять новую страховку");
+            public double getPrice() {
+                return price;
+            }
+
+            public String getNumber() {
+                return number;
+            }
+
+            public void infoValidity() {
+                if (validity.isBefore(LocalDate.now()) || validity.isEqual(LocalDate.now())) {
+                    System.out.println("нужно срочно ехать оформлять новую страховку!");
+                }
+            }
+
+            public void infoNumber() {
+                if (number.length() != 9) {
+                    System.out.println("Номер страховки некорректный!");
+                }
             }
         }
 
-        public void validityInsurance() {
-            if (validity < validity. ||) {
-
-            }
-        }
     }
-
 
 }
