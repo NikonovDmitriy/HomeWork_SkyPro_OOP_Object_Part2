@@ -1,4 +1,4 @@
-package Transport;
+package transport;
 
 import org.w3c.dom.ls.LSOutput;
 
@@ -25,7 +25,7 @@ public class Car {
 
     private String rubber;
 
-    private final Key key;
+    private Key key;
 
     private Key.Insurance insurance;
 
@@ -78,15 +78,15 @@ public class Car {
     }
 
     public void setColor(String color) {
-        this.color = color == null || color.isEmpty() || color.isBlank() ? "default" : color;
+        this.color = color == null || color.isBlank() ? "default" : color;
     }
 
     public void setTransmission(String transmission) {
-        this.transmission = transmission == null || transmission.isEmpty() || transmission.isBlank() ? "default" : transmission;
+        this.transmission = transmission == null || transmission.isBlank() ? "default" : transmission;
     }
 
     public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber == null || registrationNumber.isEmpty() || registrationNumber.isBlank() ? "default" : registrationNumber;
+        this.registrationNumber = registrationNumber == null || registrationNumber.isBlank() ? "default" : registrationNumber;
         Matcher m = Pattern.compile("[A-Z]\\d\\d\\d[A-Z][A-Z]\\d\\d\\d").matcher(registrationNumber);
         if (m.find()) {
             this.registrationNumber = registrationNumber;
@@ -102,7 +102,7 @@ public class Car {
     }
 
     public void setRubber(String rubber) {
-        this.rubber = rubber == null || rubber.isEmpty() || rubber.isBlank() ? "default" : rubber;
+        this.rubber = rubber == null || rubber.isBlank() ? "default" : rubber;
     }
 
     public Car(String brand,
@@ -116,7 +116,7 @@ public class Car {
                String registrationNumber,
                int numberOfSeats,
                Key key,
-               Key.Insurance insurance;) {
+               Key.Insurance insurance) {
 
 
         this.brand = brand == null ? "default" : brand;
@@ -146,7 +146,7 @@ public class Car {
         }
 
         if (insurance == null) {
-            this.insurance = new Key.Insurance()
+            this.insurance = new Key.Insurance();
         }else {
             this.insurance = insurance;
         }
@@ -172,15 +172,15 @@ public class Car {
 
 
     public static class Key {
-        private final boolean remoteEngineStart;
-        private final boolean keylessAccess;
+        private boolean remoteEngineStart;
+        private boolean keylessAccess;
 
 
-        private Key(boolean remoteEngineStart, boolean keylessAccess) {
+        public Key(boolean remoteEngineStart, boolean keylessAccess) {
             this.remoteEngineStart = remoteEngineStart;
             this.keylessAccess = keylessAccess;
 
-        private Key() {
+        public Key () {
                 this(false, false);
             }
 
