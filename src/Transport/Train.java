@@ -8,33 +8,33 @@ public class Train extends Transport {
     private String endStation;
     private Integer numberWagons;
 
+        public Train(String brand,
+                             String model,
+                             Integer productionYear,
+                             String productionCountry,
+                             String color,
+                             Integer maxSpeed,
+                             Integer priceTrip,
+                             Integer timeTrip,
+                             String nameStation,
+                             String endStation,
+                             Integer numberWagons) {
+                super(brand, model, productionYear, productionCountry,
+                        color, maxSpeed, priceTrip, timeTrip, nameStation,
+                        endStation, numberWagons);
+                this.brand = brand;
+                this.model = model;
+                this.productionYear = productionYear;
+                this.productionCountry = productionCountry;
+                this.color = color;
+                this.maxSpeed = maxSpeed;
+                this.priceTrip = priceTrip;
+                this.timeTrip = timeTrip;
+                this.nameStation = nameStation;
+                this.endStation = endStation;
+                this.numberWagons = numberWagons;
 
-    public Train(String brand,
-                 String model,
-                 Integer productionYear,
-                 String productionCountry,
-                 Integer priceTrip,
-                 Integer timeTrip,
-                 String nameStation,
-                 String endStation,
-                 Integer numberWagons,
-                 Integer maxSpeed) {
-        super(priceTrip, timeTrip, nameStation, endStation, numberWagons);
-        this.priceTrip = priceTrip;
-        this.timeTrip = timeTrip;
-        this.nameStation = nameStation;
-        this.endStation = endStation;
-        this.numberWagons = numberWagons;
-
-    }
-
-
-    
-
-
-
-
-
+            }
 
 
     public Integer getPriceTrip() {
@@ -79,8 +79,8 @@ public class Train extends Transport {
 
 
     public void infoTrain() {
-        System.out.println(brand+"модель "+model+productionYear+" год выпуска, страна "+productionCountry+
-                "скорость передвижения - "+maxSpeed+", начальная станция "+nameStation+", конечная станция "+
-                endStation+". Цена поездки "+priceTrip+", в поезде "+numberWagons+" вагонов.");
+        System.out.printf(brand+", модель "+model+", год выпуска "+productionYear+", страна-производитель - "+
+                productionCountry+", скорость передвижения - "+maxSpeed+"км/ч, начальная станция - "+nameStation+", " +
+                "конечная станция - "+endStation+". Цена поездки - "+priceTrip+"руб, в поезде "+numberWagons+" вагонов.");
     }
 }

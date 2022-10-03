@@ -2,16 +2,16 @@ package transport;
 
 public abstract class Transport {
 
-    private Integer numberWagons;
-    private String endStation;
-    private String nameStation;
-    private Integer timeTrip;
-    private Integer priceTrip;
+    public Integer numberWagons;
+    public String endStation;
+    public String nameStation;
+    public Integer timeTrip;
+    public Integer priceTrip;
     public String brand;
     public String model;
     public Integer productionYear;
     public String productionCountry;
-    private String color;
+    public String color;
     public Integer maxSpeed;
 
 
