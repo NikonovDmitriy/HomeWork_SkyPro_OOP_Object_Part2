@@ -1,3 +1,5 @@
+package transport;
+
 import transport.Bus;
 import transport.Car;
 import transport.Train;
