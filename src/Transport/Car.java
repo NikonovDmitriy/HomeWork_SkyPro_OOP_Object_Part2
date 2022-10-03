@@ -6,14 +6,11 @@ import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Car {
+public class Car extends Transport {
 
-    private final String brand;
-    private final String model;
+
     double engineVolume;
     private String color;
-    private final Integer productionYear;
-    private final String productionCountry;
 
     private String transmission;
 
@@ -27,7 +24,7 @@ public class Car {
 
     private Key key;
 
-    private Key.Insurance insurance;
+    private Insurance insurance;
 
     public String getBrand() {
         return brand;
@@ -116,7 +113,10 @@ public class Car {
                String registrationNumber,
                int numberOfSeats,
                Key key,
-               Key.Insurance insurance) {
+               Insurance insurance,
+               Integer maxSpeed) {
+
+        super(brand, model, productionYear, productionCountry, color, maxSpeed);
 
 
         this.brand = brand == null ? "default" : brand;
@@ -146,8 +146,8 @@ public class Car {
         }
 
         if (insurance == null) {
-            this.insurance = new Key.Insurance();
-        }else {
+            this.insurance = new Insurance(null, 0, null);
+        } else {
             this.insurance = insurance;
         }
     }
@@ -179,6 +179,7 @@ public class Car {
         public Key(boolean remoteEngineStart, boolean keylessAccess) {
             this.remoteEngineStart = remoteEngineStart;
             this.keylessAccess = keylessAccess;
+        }
 
         public Key () {
                 this(false, false);
@@ -230,8 +231,9 @@ public class Car {
                     System.out.println("Номер страховки некорректный!");
                 }
             }
-        }
-
     }
 
 }
+
+
+
