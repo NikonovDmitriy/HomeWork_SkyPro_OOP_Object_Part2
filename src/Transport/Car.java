@@ -26,29 +26,11 @@ public class Car extends Transport {
 
     private Insurance insurance;
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
 
     public double getEngineVolume() {
         return engineVolume;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public Integer getProductionYear() {
-        return productionYear;
-    }
-
-    public String getProductionCountry() {
-        return productionCountry;
-    }
 
     public String getTransmission() {
         return transmission;
@@ -72,10 +54,6 @@ public class Car extends Transport {
 
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume == 0 || engineVolume < 0 ? 0 : engineVolume;
-    }
-
-    public void setColor(String color) {
-        this.color = color == null || color.isBlank() ? "default" : color;
     }
 
     public void setTransmission(String transmission) {
@@ -154,7 +132,10 @@ public class Car extends Transport {
 
 
     public void infoCar() {
-        System.out.println(brand + " " + model + ", " + productionYear + " год выпуска, страна сборки " + productionCountry + ", " + color + " цвет, объем двигателя - " + engineVolume + ", тип коробки " + transmission + ", тип кузова " + bodyType + ", регистрационный номер " + registrationNumber + ", количество мест " + numberOfSeats);
+        System.out.println(getBrand() + " " + getModel() + ", " + getProductionYear() + " год выпуска, страна сборки "
+                + getProductionCountry() + ", " + getColor() + " цвет, объем двигателя - " + getEngineVolume() + ", тип коробки "
+                + getTransmission() + ", тип кузова " + getBodyType() + ", регистрационный номер " + getRegistrationNumber()
+                + ", количество мест " + getNumberOfSeats());
     }
 
     public void infoRubber() {
@@ -170,10 +151,15 @@ public class Car extends Transport {
         this.key = key;
     }
 
+    @Override
+    public void refill() {
+        System.out.println("Можно заправлять бензином, дизелем на заправке или заряжать на специальных электроду-парковках, если это электрокар!");
+    }
+
 
     public static class Key {
-        private boolean remoteEngineStart;
-        private boolean keylessAccess;
+        private final boolean remoteEngineStart;
+        private final boolean keylessAccess;
 
 
         public Key(boolean remoteEngineStart, boolean keylessAccess) {
