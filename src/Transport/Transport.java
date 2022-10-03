@@ -83,6 +83,21 @@ public abstract class Transport {
         return maxSpeed;
     }
 
+    public Integer getPriceTrip() {
+        return priceTrip;
+    }
+
+    public Integer getTimeTrip() {
+        return timeTrip;
+    }
+
+    public String getNameStation() {
+        return nameStation;
+    }
+
+    public String getEndStation() {
+        return endStation;
+    }
 
     public void setColor(String color) {
         this.color = color == null || color.isBlank() ? "значение указано некорректно!" : color;
@@ -91,5 +106,8 @@ public abstract class Transport {
     public void setMaxSpeed(Integer maxSpeed) {
         this.maxSpeed = maxSpeed <= 0 ? 0 : maxSpeed;
     }
+
+    public abstract void refill();
+
 
 }

@@ -30,10 +30,18 @@ public class Bus extends Transport {
 
     }
 
+    @Override
+    public void refill() {
+        System.out.println("Можно заправлять бензином или дизелем на заправке!");
+
+    }
+
     public void infoBus() {
-        System.out.println(brand+" "+model+", год выпуска "+productionYear+", производитель "+productionCountry+
-                ", цвет "+color+", максимальная скорость "+maxSpeed+"км/ч, цена билета "+priceTrip+"руб, время в пути "+
-                timeTrip+"мин, начальная станция "+nameStation+", конечная станция "+endStation);
+        System.out.println(getBrand()+" "+getModel()+", год выпуска "+getProductionYear()
+                +", производитель "+getProductionCountry()+
+                ", цвет "+getColor()+", максимальная скорость "+getMaxSpeed()+"км/ч, цена билета "
+                +getPriceTrip()+"руб, время в пути "+
+                getTimeTrip()+"мин, начальная станция "+getNameStation()+", конечная станция "+getEndStation());
     }
 
 

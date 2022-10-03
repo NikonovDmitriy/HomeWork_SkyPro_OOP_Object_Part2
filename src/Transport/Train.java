@@ -65,6 +65,12 @@ public class Train extends Transport {
         return endStation;
     }
 
+    @Override
+    public void refill() {
+        System.out.println("Нужно заправлять дизелем!");
+
+    }
+
     public void setEndStation(String endStation) {
         this.endStation = endStation == null || endStation.isBlank() ? "default" : endStation;
     }
@@ -79,8 +85,8 @@ public class Train extends Transport {
 
 
     public void infoTrain() {
-        System.out.printf(brand+", модель "+model+", год выпуска "+productionYear+", страна-производитель - "+
-                productionCountry+", скорость передвижения - "+maxSpeed+"км/ч, начальная станция - "+nameStation+", " +
-                "конечная станция - "+endStation+". Цена поездки - "+priceTrip+"руб, в поезде "+numberWagons+" вагонов.");
+        System.out.println(getBrand()+", модель "+getModel()+", год выпуска "+getProductionYear()+", страна-производитель - "+
+                getProductionCountry()+", скорость передвижения - "+getMaxSpeed()+"км/ч, начальная станция - "+getNameStation()+", " +
+                "конечная станция - "+getEndStation()+". Цена поездки - "+getPriceTrip()+"руб, в поезде "+getNumberWagons()+" вагонов.");
     }
 }
