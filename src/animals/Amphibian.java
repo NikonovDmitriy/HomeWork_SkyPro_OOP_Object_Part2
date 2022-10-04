@@ -1,24 +1,27 @@
 package animals;
 
-public class Amphibians extends Animals {
+public class Amphibian extends Animal {
 
 
 
 
-    public Amphibians(String name, int age, String habitat) {
+    public Amphibian(String name, int age, String habitat) {
         super(name, age, habitat);
     }
 
 
     @Override
     public void eat() {
-        super.eat();
         System.out.println("питаемся как земноводные");
     }
 
     @Override
+    public void sleep() {
+        System.out.println("мы спим как земноводные");
+    }
+
+    @Override
     public void go() {
-        super.go();
         System.out.println("перемещаемся как земноводные");
     }
 

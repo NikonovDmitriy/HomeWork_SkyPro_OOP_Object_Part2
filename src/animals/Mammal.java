@@ -1,34 +1,37 @@
 package animals;
 
-public class Mammals extends Animals {
+public class Mammal extends Animal {
 
 
     @Override
     public void eat() {
-        super.eat();
         System.out.println("питаемся как млекопитающие");
     }
 
     @Override
+    public void sleep() {
+        System.out.println("мы спим как млекопитающие");
+    }
+
+    @Override
     public void go() {
-        super.go();
         System.out.println("передвигаемся как млекопитающие");
     }
 
-    public int speedTravel;
-    public String typeOfFood;
+    private int speedTravel;
+    private String typeOfFood;
 
 
 
 
-    public Mammals(String name, int age, String habitat, String typeOfFood) {
+    public Mammal(String name, int age, String habitat, String typeOfFood) {
         super(name, age, habitat);
     }
 
-    public Mammals(String name, int age, String habitat, int speedTravel, String typeOfFood) {
+    public Mammal(String name, int age, String habitat, int speedTravel, String typeOfFood) {
         super(name, age, habitat);
-        this.speedTravel = speedTravel;
-        this.typeOfFood = typeOfFood;
+        this.setSpeedTravel(speedTravel);
+        this.setTypeOfFood(typeOfFood);
     }
 
 

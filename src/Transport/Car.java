@@ -9,8 +9,7 @@ import java.util.regex.Pattern;
 public class Car extends Transport {
 
 
-    double engineVolume;
-    private String color;
+    private double engineVolume;
 
     private String transmission;
 
@@ -97,23 +96,23 @@ public class Car extends Transport {
         super(brand, model, productionYear, productionCountry, color, maxSpeed);
 
 
-        this.brand = brand == null ? "default" : brand;
+        this.setBrand(brand);
 
-        this.model = model == null ? "default" : model;
+        this.setModel(model);
 
-        this.productionYear = productionYear == null ? 2000 : productionYear;
+        this.setProductionYear(productionYear);
 
-        this.productionCountry = productionCountry == null ? "default" : productionCountry;
+        this.setProductionCountry(productionCountry);
 
-        this.color = color == null ? "белый" : color;
+        this.setColor(color);
 
-        this.engineVolume = engineVolume == 0 ? 1.5 : engineVolume;
+        this.setEngineVolume(engineVolume);
 
-        this.transmission = transmission == null ? "неважно" : transmission;
+        this.setTransmission(transmission);
 
         this.bodyType = bodyType == null ? "неважно" : bodyType;
 
-        this.registrationNumber = registrationNumber == null ? "неважно" : registrationNumber;
+        this.setRegistrationNumber(registrationNumber);
 
         this.numberOfSeats = numberOfSeats < 0 ? 000 : numberOfSeats;
 

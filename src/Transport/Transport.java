@@ -2,44 +2,14 @@ package transport;
 
 public abstract class Transport {
 
-    public Integer numberWagons;
-    public String endStation;
-    public String nameStation;
-    public Integer timeTrip;
-    public Integer priceTrip;
-    public String brand;
-    public String model;
-    public Integer productionYear;
-    public String productionCountry;
-    public String color;
-    public Integer maxSpeed;
+    private String brand;
+    private String model;
+    private Integer productionYear;
+    private String productionCountry;
+    private String color;
+    private Integer maxSpeed;
 
 
-
-    public Transport(String brand,
-                     String model,
-                     Integer productionYear,
-                     String productionCountry,
-                     String color,
-                     Integer maxSpeed,
-                     Integer priceTrip,
-                     Integer timeTrip,
-                     String nameStation,
-                     String endStation,
-                     Integer numberWagons) {
-        this.brand = brand;
-        this.model = model;
-        this.productionYear = productionYear;
-        this.productionCountry = productionCountry;
-        this.color = color;
-        this.maxSpeed = maxSpeed;
-        this.priceTrip = priceTrip;
-        this.timeTrip = timeTrip;
-        this.nameStation = nameStation;
-        this.endStation = endStation;
-        this.numberWagons = numberWagons;
-
-    }
 
     public Transport(String brand,
                      String model,
@@ -47,16 +17,19 @@ public abstract class Transport {
                      String productionCountry,
                      String color,
                      Integer maxSpeed) {
+        this.setBrand(brand);
+        this.setModel(model);
+        this.setProductionYear(productionYear);
+        this.setProductionCountry(productionCountry);
+        this.setColor(color);
+        this.setMaxSpeed(maxSpeed);
+
 
     }
 
-    public Transport(Integer priceTrip,
-                     Integer timeTrip,
-                     String nameStation,
-                     String endStation,
-                     Integer numberWagons) {
 
-    }
+
+
 
 
     public String getBrand() {
@@ -83,21 +56,7 @@ public abstract class Transport {
         return maxSpeed;
     }
 
-    public Integer getPriceTrip() {
-        return priceTrip;
-    }
 
-    public Integer getTimeTrip() {
-        return timeTrip;
-    }
-
-    public String getNameStation() {
-        return nameStation;
-    }
-
-    public String getEndStation() {
-        return endStation;
-    }
 
     public void setColor(String color) {
         this.color = color == null || color.isBlank() ? "значение указано некорректно!" : color;
@@ -106,6 +65,25 @@ public abstract class Transport {
     public void setMaxSpeed(Integer maxSpeed) {
         this.maxSpeed = maxSpeed <= 0 ? 0 : maxSpeed;
     }
+
+    public void setBrand(String brand) {
+        this.brand = brand == null || brand.isBlank() ? "default" : brand;
+    }
+
+    public void setModel(String model) {
+        this.model = model == null || model.isBlank() ? "default" : model;
+    }
+
+    public void setProductionYear(Integer productionYear) {
+        this.productionYear = productionYear == null ? 2000 : productionYear;
+    }
+
+    public void setProductionCountry(String productionCountry) {
+        this.productionCountry = productionCountry == null ? "default" : productionCountry;
+    }
+
+
+
 
     public abstract void refill();
 

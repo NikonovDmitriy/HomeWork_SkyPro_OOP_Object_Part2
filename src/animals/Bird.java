@@ -1,33 +1,36 @@
 package animals;
 
-public class Birds extends Animals {
+public class Bird extends Animal {
 
 
-    public String typeMovement;
+    private String typeMovement;
 
 
 
 
-    public Birds(String name, int age, String habitat) {
+    public Bird(String name, int age, String habitat) {
         super(name, age, habitat);
     }
 
-    public Birds(String name, int age, String habitat, String typeMovement){
+    public Bird(String name, int age, String habitat, String typeMovement){
         super(name, age, habitat);
-        this.typeMovement = typeMovement;
+        this.setTypeMovement(typeMovement);
     }
 
 
 
     @Override
     public void eat() {
-        super.eat();
         System.out.println("питаемся как птицы");
     }
 
     @Override
+    public void sleep() {
+        System.out.println("мы спим по-птичьи");
+    }
+
+    @Override
     public void go() {
-        super.go();
         System.out.println("умеем летать и не летаем, по-разному");
     }
 

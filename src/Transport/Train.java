@@ -2,40 +2,51 @@ package transport;
 
 public class Train extends Transport {
 
-    private Integer priceTrip;
-    private Integer timeTrip;
-    private String nameStation;
-    private String endStation;
-    private Integer numberWagons;
+    public Integer priceTrip;
+    public Integer timeTrip;
+    public String nameStation;
+    public String endStation;
+    public Integer numberWagons;
 
         public Train(String brand,
-                             String model,
-                             Integer productionYear,
-                             String productionCountry,
-                             String color,
-                             Integer maxSpeed,
-                             Integer priceTrip,
-                             Integer timeTrip,
-                             String nameStation,
-                             String endStation,
-                             Integer numberWagons) {
-                super(brand, model, productionYear, productionCountry,
-                        color, maxSpeed, priceTrip, timeTrip, nameStation,
-                        endStation, numberWagons);
-                this.brand = brand;
-                this.model = model;
-                this.productionYear = productionYear;
-                this.productionCountry = productionCountry;
-                this.color = color;
-                this.maxSpeed = maxSpeed;
-                this.priceTrip = priceTrip;
-                this.timeTrip = timeTrip;
-                this.nameStation = nameStation;
-                this.endStation = endStation;
-                this.numberWagons = numberWagons;
+                     String model,
+                     Integer productionYear,
+                     String productionCountry,
+                     String color,
+                     Integer maxSpeed) {
+            super(brand, model, productionYear, productionCountry, color, maxSpeed);
+            this.setBrand(brand);
+            this.setModel(model);
+            this.setProductionYear(productionYear);
+            this.setProductionCountry(productionCountry);
+            this.setColor(color);
+            this.setMaxSpeed(maxSpeed);
+            this.setPriceTrip(priceTrip);
+            this.setTimeTrip(timeTrip);
+            this.setNameStation(nameStation);
+            this.setEndStation(endStation);
+
 
             }
 
+    public Train(String brand,
+                 String model,
+                 Integer productionYear,
+                 String productionCountry,
+                 String color,
+                 Integer maxSpeed,
+                 Integer priceTrip,
+                 Integer timeTrip,
+                 String nameStation,
+                 String endStation,
+                 Integer numberWagons) {
+        super(brand, model, productionYear, productionCountry, color, maxSpeed);
+        this.priceTrip = priceTrip;
+        this.timeTrip = timeTrip;
+        this.nameStation = nameStation;
+        this.endStation = endStation;
+        this.numberWagons = numberWagons;
+    }
 
     public Integer getPriceTrip() {
         return priceTrip;
@@ -65,12 +76,6 @@ public class Train extends Transport {
         return endStation;
     }
 
-    @Override
-    public void refill() {
-        System.out.println("Нужно заправлять дизелем!");
-
-    }
-
     public void setEndStation(String endStation) {
         this.endStation = endStation == null || endStation.isBlank() ? "default" : endStation;
     }
@@ -83,10 +88,22 @@ public class Train extends Transport {
         this.numberWagons = numberWagons <= 0 ? 0 : numberWagons;
     }
 
+    @Override
+    public void refill() {
+        System.out.println("Нужно заправлять дизелем!");
+
+    }
+
+
+
+
+
 
     public void infoTrain() {
         System.out.println(getBrand()+", модель "+getModel()+", год выпуска "+getProductionYear()+", страна-производитель - "+
                 getProductionCountry()+", скорость передвижения - "+getMaxSpeed()+"км/ч, начальная станция - "+getNameStation()+", " +
                 "конечная станция - "+getEndStation()+". Цена поездки - "+getPriceTrip()+"руб, в поезде "+getNumberWagons()+" вагонов.");
     }
+
+
 }

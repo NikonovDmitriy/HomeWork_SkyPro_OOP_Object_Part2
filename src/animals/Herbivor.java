@@ -1,21 +1,19 @@
 package animals;
 
-public class Herbivores extends Mammals{
+public class Herbivor extends Mammal {
 
 
     @Override
     public void eat() {
-        super.eat();
         System.out.println("питаемся как травоядные");
     }
 
     @Override
     public void go() {
-        super.go();
         System.out.println("перемещаемся как травоядные");
     }
 
-    public Herbivores(String name, int age, String habitat, String typeOfFood) {
+    public Herbivor(String name, int age, String habitat, String typeOfFood) {
         super(name, age, habitat, typeOfFood);
     }
 
