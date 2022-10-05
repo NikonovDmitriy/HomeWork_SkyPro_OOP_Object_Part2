@@ -2,13 +2,14 @@ package transport;
 
 public class Train extends Transport {
 
-    public Integer priceTrip;
-    public Integer timeTrip;
-    public String nameStation;
-    public String endStation;
-    public Integer numberWagons;
+    private Integer priceTrip;
+    private Integer timeTrip;
+    private String nameStation;
+    private String endStation;
+    private Integer numberWagons;
 
-        public Train(String brand,
+
+    public Train(String brand,
                      String model,
                      Integer productionYear,
                      String productionCountry,

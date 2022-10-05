@@ -31,7 +31,7 @@ public class Bird extends Animal {
 
     @Override
     public void go() {
-        System.out.println("умеем летать и не летаем, по-разному");
+        System.out.println("умеем только ходить");
     }
 
 
