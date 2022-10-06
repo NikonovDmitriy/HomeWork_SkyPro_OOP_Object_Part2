@@ -59,7 +59,9 @@ public class Main {
         bus4.maxSpeed();
         bus4.bestTime();
 
-
+        Driver<Car> bob = new Driver<>("Bob", "B", "1 год");
+        Driver<Truck> tom = new Driver<>("Tom", "C", "2 года");
+        Driver<Bus> mike = new Driver<>("Mike", "D", "2 года");
 
     }
 }
