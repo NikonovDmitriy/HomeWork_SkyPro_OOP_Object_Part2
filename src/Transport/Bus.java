@@ -1,6 +1,6 @@
 package transport;
 
-public class Bus extends Transport {
+public class Bus extends Transport implements Emulous {
 
     public Bus(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
@@ -13,6 +13,25 @@ public class Bus extends Transport {
 
     @Override
     public void finishMoving() {
+
+    }
+
+    @Override
+    public void pitStop() {
+        System.out.println("пит-стоп как у автобуса");
+
+    }
+
+    @Override
+    public void maxSpeed() {
+
+        System.out.println("максимальная скорость автобуса 145км/ч");
+
+    }
+
+    @Override
+    public void bestTime() {
+        System.out.println("лучшее время круга автобуса 4 минуты");
 
     }
 }

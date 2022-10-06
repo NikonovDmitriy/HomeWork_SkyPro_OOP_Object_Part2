@@ -9,19 +9,55 @@ public class Main {
 
 
         Car car1 = new Car("Mitsubishi", "Lancer", 2.0);
+        car1.pitStop();
+        car1.maxSpeed();
+        car1.bestTime();
         Car car2 = new Car("Toyota", "Corolla", 1.8);
+        car2.pitStop();
+        car2.maxSpeed();
+        car2.bestTime();
         Car car3 = new Car("Nissan", "Almera", 1.7);
+        car3.pitStop();
+        car3.maxSpeed();
+        car3.bestTime();
         Car car4 = new Car("Volkswagen", "Polo", 1.8);
+        car4.pitStop();
+        car4.maxSpeed();
+        car4.bestTime();
 
         Truck truck1 = new Truck("Kamaz", "Turbo", 5.5);
+        truck1.pitStop();
+        truck1.maxSpeed();
+        truck1.bestTime();
         Truck truck2 = new Truck("Maz", "Turbo", 6.6);
+        truck2.pitStop();
+        truck2.maxSpeed();
+        truck2.bestTime();
         Truck truck3 = new Truck("Ataz", "Turbo", 7.7);
+        truck3.pitStop();
+        truck3.maxSpeed();
+        truck3.bestTime();
         Truck truck4 = new Truck("Karabaz", "Turbo", 8.8);
+        truck4.pitStop();
+        truck4.maxSpeed();
+        truck4.bestTime();
 
         Bus bus1 = new Bus("Laz", "Rocket", 3.5);
+        bus1.pitStop();
+        bus1.maxSpeed();
+        bus1.bestTime();
         Bus bus2 = new Bus("Taz", "Rocket", 5.5);
+        bus2.pitStop();
+        bus2.maxSpeed();
+        bus2.bestTime();
         Bus bus3 = new Bus("Gaz", "Rocket", 5.5);
+        bus3.pitStop();
+        bus3.maxSpeed();
+        bus3.bestTime();
         Bus bus4 = new Bus("Vaz", "Rocket", 6.5);
+        bus4.pitStop();
+        bus4.maxSpeed();
+        bus4.bestTime();
 
 
 

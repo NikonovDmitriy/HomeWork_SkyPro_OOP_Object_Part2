@@ -6,7 +6,7 @@ package transport;
 //import java.util.regex.Matcher;
 //import java.util.regex.Pattern;
 //
-public class Car extends Transport {
+public class Car extends Transport implements Emulous {
 
     public Car(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
@@ -19,6 +19,24 @@ public class Car extends Transport {
 
     @Override
     public void finishMoving() {
+
+    }
+
+    @Override
+    public void pitStop() {
+        System.out.println("пит-стоп как у легкового авто");
+
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println("максимальная скорость легкового авто 350км/ч");
+
+    }
+
+    @Override
+    public void bestTime() {
+        System.out.println("лучшее время круга легкового авто 2 минуты");
 
     }
 }
