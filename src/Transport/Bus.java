@@ -2,8 +2,19 @@ package transport;
 
 public class Bus extends Transport implements Emulous {
 
-    public Bus(String brand, String model, double engineVolume) {
+    private Capacity capacity;
+
+    public Bus(String brand, String model, double engineVolume, Capacity capacity) {
         super(brand, model, engineVolume);
+        this.capacity = capacity;
+    }
+
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Capacity capacity) {
+        this.capacity = capacity;
     }
 
     @Override
@@ -17,6 +28,16 @@ public class Bus extends Transport implements Emulous {
         System.out.println("автобусный финиш");
 
     }
+
+    @Override
+    public void infoType() {
+        if (capacity == null) {
+            System.out.println("данных недостаточно");
+        }else {
+            System.out.println("Вместимость автобуса от" + capacity.getFrom() + " до " +capacity.getTo());
+        }
+
+     }
 
     @Override
     public void pitStop() {

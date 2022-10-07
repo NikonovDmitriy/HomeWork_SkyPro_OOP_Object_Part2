@@ -8,8 +8,19 @@ package transport;
 //
 public class Car extends Transport implements Emulous {
 
-    public Car(String brand, String model, double engineVolume) {
+    private BodyType bodyType;
+
+    public Car(String brand, String model, double engineVolume, BodyType bodyType) {
         super(brand, model, engineVolume);
+        this.bodyType = bodyType;
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
     }
 
     @Override
@@ -21,6 +32,16 @@ public class Car extends Transport implements Emulous {
     @Override
     public void finishMoving() {
         System.out.println("финиш легкового авто");
+
+    }
+
+    @Override
+    public void infoType() {
+        if (bodyType == null) {
+            System.out.println("данных недостаточно");
+        }else {
+            System.out.println("Тип кузова авто - "+bodyType);
+        }
 
     }
 
@@ -41,6 +62,7 @@ public class Car extends Transport implements Emulous {
         System.out.println("лучшее время круга легкового авто 2 минуты");
 
     }
+
 }
 
 //

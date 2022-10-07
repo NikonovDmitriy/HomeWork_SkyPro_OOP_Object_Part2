@@ -2,8 +2,19 @@ package transport;
 
 public class Truck extends Transport implements Emulous {
 
-    public Truck(String brand, String model, double engineVolume) {
+    private LoadCapacity loadCapacity;
+
+    public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity) {
         super(brand, model, engineVolume);
+        this.loadCapacity = loadCapacity;
+    }
+
+    public LoadCapacity getLoadCapacity() {
+        return loadCapacity;
+    }
+
+    public void setLoadCapacity(LoadCapacity loadCapacity) {
+        this.loadCapacity = loadCapacity;
     }
 
     @Override
@@ -15,6 +26,18 @@ public class Truck extends Transport implements Emulous {
     @Override
     public void finishMoving() {
         System.out.println("финиш грузового авто");
+
+    }
+
+    @Override
+    public void infoType() {
+        if (loadCapacity == null) {
+            System.out.println("данных недостаточно");
+        }else {
+            String from = loadCapacity.getFrom() == null ? "" : "от " + loadCapacity.getFrom() + " ";
+            String to = loadCapacity.getTo() == null ? "" : "до " + loadCapacity.getTo();
+            System.out.println("Грузоподъемность авто - " + from + to);
+        }
 
     }
 
