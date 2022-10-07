@@ -14,11 +14,13 @@ public class Car extends Transport implements Emulous {
 
     @Override
     public void startMoving() {
+        System.out.println("старт легкового авто");
 
     }
 
     @Override
     public void finishMoving() {
+        System.out.println("финиш легкового авто");
 
     }
 

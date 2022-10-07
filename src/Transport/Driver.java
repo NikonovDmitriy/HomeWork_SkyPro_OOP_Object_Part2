@@ -40,18 +40,19 @@ public class Driver <T extends Transport & Emulous> {
     }
 
 
+    public void startMoving(T transport) {
+        transport.startMoving();
 
-
-
-    public void startMoving() {
 
     }
 
-    public void stay() {
+    public void stay(T transport) {
+        transport.finishMoving();
 
     }
 
-    public void refuelCar() {
+    public void refuelCar(T transport) {
+        System.out.println("какое-то авто заправляется");
 
     }
 }

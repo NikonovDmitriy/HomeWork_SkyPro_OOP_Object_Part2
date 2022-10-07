@@ -8,11 +8,13 @@ public class Truck extends Transport implements Emulous {
 
     @Override
     public void startMoving() {
+        System.out.println("старт грузового авто");
 
     }
 
     @Override
     public void finishMoving() {
+        System.out.println("финиш грузового авто");
 
     }
 

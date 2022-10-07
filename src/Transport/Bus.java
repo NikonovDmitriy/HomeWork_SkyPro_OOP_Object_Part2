@@ -8,11 +8,13 @@ public class Bus extends Transport implements Emulous {
 
     @Override
     public void startMoving() {
+        System.out.println("автобусный старт");
 
     }
 
     @Override
     public void finishMoving() {
+        System.out.println("автобусный финиш");
 
     }
 
