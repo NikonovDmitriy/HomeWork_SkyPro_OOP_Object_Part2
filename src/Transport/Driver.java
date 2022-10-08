@@ -1,6 +1,6 @@
 package transport;
 
-public class Driver <T extends Transport & Emulous> {
+public class Driver<T extends Transport & Emulous> {
 
     private String name;
     private String driverLicense;
@@ -11,8 +11,6 @@ public class Driver <T extends Transport & Emulous> {
         this.setDriverLicense(driverLicense);
         this.setExperience(experience);
     }
-
-
 
 
     public String getName() {
@@ -52,7 +50,7 @@ public class Driver <T extends Transport & Emulous> {
     }
 
     public void refuelCar(T transport) {
-        System.out.println("какое-то авто заправляется");
+        System.out.println(transport.getBrand() + " " + transport.getModel() + " заправляется топливом");
 
     }
 }
