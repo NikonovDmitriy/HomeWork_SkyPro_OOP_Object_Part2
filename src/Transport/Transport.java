@@ -41,6 +41,8 @@ public abstract class Transport {
     public abstract void startMoving();
 
     public abstract void finishMoving();
+
+    public abstract void infoType();
 }
 //    private Integer productionYear;
 //    private String productionCountry;
