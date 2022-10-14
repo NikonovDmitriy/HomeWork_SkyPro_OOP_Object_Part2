@@ -33,11 +33,17 @@ public class Bus extends Transport implements Emulous {
     public void infoType() {
         if (capacity == null) {
             System.out.println("данных недостаточно");
-        }else {
-            System.out.println("Вместимость автобуса от" + capacity.getFrom() + " до " +capacity.getTo());
+        } else {
+            System.out.println("Вместимость автобуса от" + capacity.getFrom() + " до " + capacity.getTo());
         }
 
-     }
+    }
+
+    @Override
+    public boolean diagnosed() {
+        System.out.println("Автобус " + getBrand() + " " + getModel() + " в диагностике не нуждается");
+        return true;
+    }
 
     @Override
     public void pitStop() {

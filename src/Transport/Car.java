@@ -1,4 +1,5 @@
 package transport;
+
 //
 //import org.w3c.dom.ls.LSOutput;
 //
@@ -39,10 +40,15 @@ public class Car extends Transport implements Emulous {
     public void infoType() {
         if (bodyType == null) {
             System.out.println("данных недостаточно");
-        }else {
-            System.out.println("Тип кузова авто - "+bodyType);
+        } else {
+            System.out.println("Тип кузова авто - " + bodyType);
         }
 
+    }
+
+    @Override
+    public boolean diagnosed() {
+        return Math.random() > 0.7;
     }
 
     @Override

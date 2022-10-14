@@ -33,12 +33,17 @@ public class Truck extends Transport implements Emulous {
     public void infoType() {
         if (loadCapacity == null) {
             System.out.println("данных недостаточно");
-        }else {
+        } else {
             String from = loadCapacity.getFrom() == null ? "" : "от " + loadCapacity.getFrom() + " ";
             String to = loadCapacity.getTo() == null ? "" : "до " + loadCapacity.getTo();
             System.out.println("Грузоподъемность авто - " + from + to);
         }
 
+    }
+
+    @Override
+    public boolean diagnosed() {
+        return Math.random() > 0.85;
     }
 
     @Override

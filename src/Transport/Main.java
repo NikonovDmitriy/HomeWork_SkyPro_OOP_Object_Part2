@@ -59,13 +59,37 @@ public class Main {
         bus4.maxSpeed();
         bus4.bestTime();
 
+        service(car1, car2, car3, car4,
+                truck1, truck2, truck3, truck4,
+                bus1, bus2, bus3, bus4);
 
-        Driver<Car> bob = new Driver<>("Bob", "B", "1 год");
-        Driver<Truck> tom = new Driver<>("Tom", "C", "2 года");
-        Driver<Bus> mike = new Driver<>("Mike", "D", "2 года");
+
+        Driver<Car> bob = new Driver<>("Bob", "B", "1 год", null);
+        Driver<Truck> tom = new Driver<>("Tom", "C", "2 года", null);
+        Driver<Bus> mike = new Driver<>("Mike", "D", "2 года", null);
         bob.refuelCar(car1);
 
+    }
 
+    private static void service(Transport... transports){
+        for (Transport transport : transports) {
+            if (!transport.service()) {
+                serviceTransport(transport);
+
+            }
+
+        }
+
+    }
+
+    private static void serviceTransport(Transport transport) {
+        try {
+            if (!transport.service()) {
+                throw new RuntimeException("Автомобиль " + transport.getBrand() + " " + transport.getModel() + " не прошел диагностику");
+            }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 }

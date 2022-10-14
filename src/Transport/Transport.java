@@ -43,6 +43,11 @@ public abstract class Transport {
     public abstract void finishMoving();
 
     public abstract void infoType();
+
+    public abstract boolean diagnosed();
+
+
+    public abstract boolean service();
 }
 //    private Integer productionYear;
 //    private String productionCountry;

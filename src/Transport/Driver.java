@@ -6,10 +6,14 @@ public class Driver<T extends Transport & Emulous> {
     private String driverLicense;
     private String experience;
 
-    public Driver(String name, String driverLicense, String experience) {
+    private String category;
+
+
+    public Driver(String name, String driverLicense, String experience, String category) {
         this.setName(name);
         this.setDriverLicense(driverLicense);
         this.setExperience(experience);
+        this.setCategory(category);
     }
 
 
@@ -35,6 +39,17 @@ public class Driver<T extends Transport & Emulous> {
 
     public void setExperience(String experience) {
         this.experience = experience == null || experience.isBlank() ? "default" : experience;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        if (category == null) {
+            throw new IllegalArgumentException("Необходимо указать категорию прав!");
+        }
+        this.category = category;
     }
 
 
