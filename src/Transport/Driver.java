@@ -68,4 +68,9 @@ public class Driver<T extends Transport & Emulous> {
         System.out.println(transport.getBrand() + " " + transport.getModel() + " заправляется топливом");
 
     }
+
+    @Override
+    public String toString() {
+        return name + ", стаж вождения: " + driverLicense + " лет, категория: " + category;
+    }
 }

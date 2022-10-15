@@ -57,6 +57,11 @@ public class Car extends Transport implements Emulous {
     }
 
     @Override
+    public void repair() {
+        System.out.println("Машина " + getBrand() + " " + getModel() + " отремонтирована!");
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("пит-стоп как у легкового авто");
 

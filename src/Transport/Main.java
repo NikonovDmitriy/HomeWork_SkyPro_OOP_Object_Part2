@@ -4,6 +4,8 @@ import transport.Truck;
 import transport.Car;
 import transport.Bus;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -12,70 +14,113 @@ public class Main {
         car1.pitStop();
         car1.maxSpeed();
         car1.bestTime();
+        car1.addDriver(new Driver<>("Bob", "Есть", "Опытный", "B"));
+        car1.addMechanic(new Mechanic<Car>("Ror", "Rorovich", "Www"));
+        car1.addSponsor(new Sponsor("Ted", 1));
+
         Car car2 = new Car("Toyota", "Corolla", 1.8, BodyType.SEDAN);
         car2.pitStop();
         car2.maxSpeed();
         car2.bestTime();
+
         Car car3 = new Car("Nissan", "Almera", 1.7, BodyType.SEDAN);
         car3.pitStop();
         car3.maxSpeed();
         car3.bestTime();
+
         Car car4 = new Car("Volkswagen", "Polo", 1.8, BodyType.SEDAN);
         car4.pitStop();
         car4.maxSpeed();
         car4.bestTime();
 
+
         Truck truck1 = new Truck("Kamaz", "Turbo", 5.5, LoadCapacity.N1);
         truck1.pitStop();
         truck1.maxSpeed();
         truck1.bestTime();
+        truck1.addDriver(new Driver<>("Mike", "Есть", "Опытный", "С"));
+        truck1.addMechanic(new Mechanic<>("Tom", "Tomov", "Eee"));
+        truck1.addSponsor(new Sponsor("Sergey", 2));
+
         Truck truck2 = new Truck("Maz", "Turbo", 6.6, LoadCapacity.N2);
         truck2.pitStop();
         truck2.maxSpeed();
         truck2.bestTime();
+
         Truck truck3 = new Truck("Ataz", "Turbo", 7.7, LoadCapacity.N3);
         truck3.pitStop();
         truck3.maxSpeed();
         truck3.bestTime();
+
         Truck truck4 = new Truck("Karabaz", "Turbo", 8.8, LoadCapacity.N1);
         truck4.pitStop();
         truck4.maxSpeed();
         truck4.bestTime();
 
+
         Bus bus1 = new Bus("Laz", "Rocket", 3.5, Capacity.BIG);
         bus1.pitStop();
         bus1.maxSpeed();
         bus1.bestTime();
+        bus1.addDriver(new Driver<>("Nikolas", "Есть", "Опытный", "D"));
+        bus1.addMechanic(new Mechanic<>("Nik", "Nikov", "Eee"));
+        bus1.addSponsor(new Sponsor("Dimarik", 2));
+
         Bus bus2 = new Bus("Taz", "Rocket", 5.5, Capacity.MEDIUM);
         bus2.pitStop();
         bus2.maxSpeed();
         bus2.bestTime();
+
         Bus bus3 = new Bus("Gaz", "Rocket", 5.5, Capacity.ESPECIALLY_BIG);
         bus3.pitStop();
         bus3.maxSpeed();
         bus3.bestTime();
+
         Bus bus4 = new Bus("Vaz", "Rocket", 6.5, Capacity.BIG);
         bus4.pitStop();
         bus4.maxSpeed();
         bus4.bestTime();
+
+
+        List<Transport> transports = List.of(
+                car1, truck1, bus1);
+
+        ServiceStation serviceStation = new ServiceStation();
+        serviceStation.addCar(car1);
+        serviceStation.addTruck(truck1);
+        serviceStation.service();
+        serviceStation.service();
+
+        for (Transport transport : transports) {
+            printInfo(transport);
+        }
 
         service(car1, car2, car3, car4,
                 truck1, truck2, truck3, truck4,
                 bus1, bus2, bus3, bus4);
 
 
-        Driver<Car> bob = new Driver<>("Bob", "B", "1 год", null);
-        Driver<Truck> tom = new Driver<>("Tom", "C", "2 года", null);
-        Driver<Bus> mike = new Driver<>("Mike", "D", "2 года", null);
+        Driver<Car> bob = new Driver<>("Bob", "B", "1 год", "B");
+        Driver<Truck> tom = new Driver<>("Tom", "C", "2 года", "C");
+        Driver<Bus> mike = new Driver<>("Mike", "D", "2 года", "D");
         bob.refuelCar(car1);
 
     }
 
-    private static void service(Transport... transports){
+    private static void printInfo(Transport transport) {
+
+        System.out.println("Информация по авто " + transport.getBrand() + " " + transport.getModel());
+        System.out.println("Водители: " + transport.getDrivers());
+        System.out.println("Спонсоры: " + transport.getSponsors());
+        System.out.println("Механики: " + transport.getMechanics());
+        System.out.println();
+
+    }
+
+    private static void service(Transport... transports) {
         for (Transport transport : transports) {
         }
     }
-
 
 
     private static void serviceTransport(Transport transport) {
@@ -88,6 +133,8 @@ public class Main {
         }
 
     }
+
+
 }
 //
 //        Car car1 = new Car("Lada", "Grande", 2015, "Россия", "желтый", 1.7, "автомат", "седан", "a111aa111", 4, null, null, null);

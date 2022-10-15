@@ -68,4 +68,9 @@ public class Truck extends Transport implements Emulous {
         System.out.println("лучшее время круга грузового авто 3 минуты");
 
     }
+
+    @Override
+    public void repair() {
+        System.out.println("Грузовик " + getBrand() + " " + getModel() + " отремонтирован!");
+    }
 }

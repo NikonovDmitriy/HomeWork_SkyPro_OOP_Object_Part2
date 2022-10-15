@@ -68,6 +68,11 @@ public class Bus extends Transport implements Emulous {
         System.out.println("лучшее время круга автобуса 4 минуты");
 
     }
+
+    @Override
+    public void repair() {
+        System.out.println("Автобус " + getBrand() + " " + getModel() + " отремонтирован!");
+    }
 }
 
 //
