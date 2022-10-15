@@ -46,6 +46,11 @@ public class Bus extends Transport implements Emulous {
     }
 
     @Override
+    public boolean service() {
+        return false;
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("пит-стоп как у автобуса");
 

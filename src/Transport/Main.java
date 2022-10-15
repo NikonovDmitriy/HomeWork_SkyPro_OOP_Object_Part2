@@ -73,14 +73,9 @@ public class Main {
 
     private static void service(Transport... transports){
         for (Transport transport : transports) {
-            if (!transport.service()) {
-                serviceTransport(transport);
-
-            }
-
         }
-
     }
+
 
 
     private static void serviceTransport(Transport transport) {
