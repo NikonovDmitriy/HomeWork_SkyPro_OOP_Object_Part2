@@ -1,66 +1,69 @@
 package products;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Product {
 
-    private String name;
+    private final Name name;
+    private double weight;
     private double price;
-    private double amount;
+    private boolean purchase;
 
-
-    public Product(String name, double price, double amount) {
-        this.setName(name);
+    public Product(Name name, double weight, double price) {
+        this.name = name;
+        this.setWeight(weight);
         this.setPrice(price);
-        this.setAmount(amount);
+        purchase = false;
     }
 
-    public String getName() {
+    public Name getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name == null || name.isBlank() ? "default" : name;
+    public double getWeight() {
+        return weight;
     }
 
     public double getPrice() {
         return price;
     }
 
+    public boolean isPurchase() {
+        return purchase;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = Math.max(weight, 0);
+    }
+
     public void setPrice(double price) {
-        this.price = price;
-
+        this.price = Math.max(price, 0);
     }
 
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setPurchase(boolean purchase) {
+        this.purchase = purchase;
     }
 
 
-    private static Set<Product> productList = new HashSet<>();
 
-    public static Set<Product> getProductList() {
-        return productList;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        return name == product.name;
     }
 
-    public static void addProduct(Product name) throws Exception{
-        if (name.getName() == null || name.getPrice() == 0 || name.getAmount() == 0) {
-            throw new Exception("Заполните карточку товара полностью!");
-        }
-        if (!productList.contains(name)) {
-            productList.add(name);
-        }else {
-            throw new Exception("Продукт " + name + " уже есть в корзине");
-        }
+
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
     }
+
+
+
 }
-
-
 
 
 
