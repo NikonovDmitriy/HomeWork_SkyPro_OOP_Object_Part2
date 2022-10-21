@@ -15,7 +15,7 @@ public class Sponsor {
         return name;
     }
 
-    public int getweight() {
+    public int getWeight() {
         return weight;
     }
 

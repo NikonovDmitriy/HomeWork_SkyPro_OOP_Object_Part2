@@ -2,6 +2,7 @@ package transport;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public abstract class Transport {
@@ -10,9 +11,9 @@ public abstract class Transport {
     private String model;
     private double engineVolume;
 
-    private final List<Driver<?>> drivers = new ArrayList<>();
-    private final List<Mechanic<?>> mechanics = new ArrayList<>();
-    private final List<Sponsor> sponsors = new ArrayList<>();
+    private final HashSet<Driver<?>> drivers = new HashSet<>();
+    private final HashSet<Mechanic<?>> mechanics = new HashSet<>();
+    private final HashSet<Sponsor> sponsors = new HashSet<>();
 
 
 
@@ -23,15 +24,15 @@ public abstract class Transport {
 
     }
 
-    public List<Driver<?>> getDrivers() {
+    public HashSet<Driver<?>> getDrivers() {
         return drivers;
     }
 
-    public List<Mechanic<?>> getMechanics() {
+    public HashSet<Mechanic<?>> getMechanics() {
         return mechanics;
     }
 
-    public List<Sponsor> getSponsors() {
+    public HashSet<Sponsor> getSponsors() {
         return sponsors;
     }
 
