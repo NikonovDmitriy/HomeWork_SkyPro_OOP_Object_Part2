@@ -5,6 +5,8 @@ import java.util.Map;
 
 public class Main {
 
+
+
     private static Map<Integer, Passport> map = new HashMap<>();
 
     public static void main(String[] args) {
