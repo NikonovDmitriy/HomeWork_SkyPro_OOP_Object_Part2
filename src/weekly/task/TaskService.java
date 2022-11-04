@@ -13,20 +13,15 @@ public class TaskService {
 
     private static int task_id;
 
-    private static final Map<Integer, Task> tasks;
+    private static Map<Integer, Task> tasks;
     private static Map<Integer, Task> deletedTasks;
 
-    static {
-        tasks = FileWorker.getTasksFromFile();
-        tasks.keySet().stream().max(Integer::compareTo).ifPresent(m -> task_id = m);
-        deletedTasks = FileWorker.getDeletedTasksFromFile();
-    }
+
 
     private TaskService() {}
 
     public static void createNewTask() {
         tasks.put(++task_id, NewTask.getNewTask());
-        FileWorker.refreshTasksFile(tasks);
         System.out.println("New task  added successfully!");
         Menu.show();
     }
@@ -36,7 +31,6 @@ public class TaskService {
             int id = ConsoleWorker.waitValidIdOrZeroForDelete(tasks);
             if (id != 0) {
                 deletedTasks.put(id, tasks.remove(id));
-                FileWorker.refreshFiles(tasks, deletedTasks);
                 System.out.println("Task deleted successfully!");
             }
         }
@@ -139,7 +133,6 @@ public class TaskService {
 
     public static void dropDeleted() {
         deletedTasks = new HashMap<>();
-        FileWorker.refreshDeletedTaskFile(deletedTasks);
         System.out.println("Drop successful!");
         Menu.show();
     }
@@ -181,13 +174,11 @@ public class TaskService {
 
     private static void editTitle(int id, Map<Integer, Task> map) {
         map.get(id).setTitle(ConsoleWorker.waitNewTitle());
-        FileWorker.refreshFiles(tasks, deletedTasks);
         showInfoById(id, map);
     }
 
     private static void editDescription(int id, Map<Integer, Task> map) {
         map.get(id).setDescription(ConsoleWorker.waitNewDescription());
-        FileWorker.refreshFiles(tasks, deletedTasks);
         showInfoById(id, map);
     }
 }
