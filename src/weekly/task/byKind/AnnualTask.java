@@ -1,0 +1,18 @@
+package weekly.task.byKind;
+
+import weekly.task.Task;
+import weekly.task.TaskType;
+
+import java.time.LocalDateTime;
+
+public class AnnualTask extends Task {
+
+    public AnnualTask(String title, String description, LocalDateTime time, TaskType type) {
+        super(title, description, time, type, RepeatType.ANNUAL);
+    }
+
+    @Override
+    protected LocalDateTime nextRepeat() {
+        return this.getTime().plusYears(1);
+    }
+}
